@@ -8,10 +8,10 @@ etag master last_changed_at
 {
   field ( readonly ) last_changed_at, last_changed_by, created_at, created_by;
   field ( mandatory : create ) agency_id, overall_status, booking_fee, currency_code;
-  field( features : instance ) travel_id;
-  action createTravelTemp  result[1] $self;
-  action approveTravel result[1] $self;
-  action rejectTravel result[1] $self;
+  field ( features : instance ) travel_id;
+  action createTravelTemp result [1] $self;
+  action approveTravel result [1] $self;
+  action rejectTravel result [1] $self;
   create;
   update;
   delete;
@@ -24,7 +24,7 @@ lock dependent ( travel_id = travel_id )
 //authorization dependent by <association>
 etag master last_changed_at
 {
-
+  field ( readonly ) travel_id;
   field ( mandatory : create ) carrier_id, connection_id, flight_date;
   update;
   delete;
@@ -37,6 +37,7 @@ lock dependent ( travel_id = travel_id )
 //authorization dependent by <association>
 etag master last_changed_at
 {
+  field ( readonly ) travel_id;
   field ( mandatory : create ) supplement_id, price;
   update;
   delete;

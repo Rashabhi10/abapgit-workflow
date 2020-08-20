@@ -61,7 +61,9 @@ define root view entity yrv_m_approver_travel
       @UI.identification: [{position: 90 }]
       @UI.selectionField: [{position: 90 }]
       description,
-      @UI.lineItem: [{position: 100 }]
+      @UI.lineItem: [{position: 100 },
+      {type: #FOR_ACTION , dataAction: 'approveTravel',label: 'Approve Request'},
+      {type: #FOR_ACTION, dataAction: 'rejectTravel', label: 'Reject Request'} ]
       @UI.identification: [{position: 100 }]
       @UI.selectionField: [{position: 100 }]
       overall_status,
