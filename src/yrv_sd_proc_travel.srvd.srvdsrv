@@ -1,0 +1,15 @@
+@EndUserText.label: 'Service Definition - Travel'
+define service Yrv_sd_proc_travel {
+  expose yrv_m_proc_travel;
+  expose yrv_m_proc_booking;
+  expose yrv_m_proc_bookingsup;
+  expose /DMO/I_Carrier;
+  expose /DMO/I_Connection;
+  expose /DMO/I_Supplement;
+  expose /DMO/I_SupplementText;
+  expose /DMO/I_Customer;
+  expose /DMO/I_Agency;
+  expose /DMO/I_Flight;
+  expose I_Currency;
+  expose I_Country;
+}

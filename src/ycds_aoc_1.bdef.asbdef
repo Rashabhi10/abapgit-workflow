@@ -1,0 +1,12 @@
+managed; // implementation in class zbp_cds_aoc_1 unique;
+
+define behavior for ycds_aoc_1 //alias <alias_name>
+persistent table ydemo_empl
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+}

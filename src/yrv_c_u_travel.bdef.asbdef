@@ -1,0 +1,14 @@
+unmanaged implementation in class ycl_rv_c_u_travel unique;
+
+define behavior for yrv_c_u_travel //alias <alias_name>
+//late numbering
+//lock master
+//etag master <field_name>
+{
+  field ( readonly ) TravelId;
+  field ( mandatory ) AgencyId, customerID;
+  create;
+  update;
+  delete;
+  action set_booked result[1] $self;
+}

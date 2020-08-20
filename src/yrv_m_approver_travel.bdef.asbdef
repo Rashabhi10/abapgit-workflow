@@ -1,0 +1,13 @@
+projection;
+
+define behavior for yrv_m_approver_travel alias Travel
+{
+  field ( readonly ) travel_id, customer_id, begin_date, end_date, total_price,agency_id;
+  use update;
+}
+
+define behavior for yrv_m_approver_booking alias Book
+{
+  use update;
+
+}

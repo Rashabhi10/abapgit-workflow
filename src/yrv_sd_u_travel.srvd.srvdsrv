@@ -1,0 +1,8 @@
+@EndUserText.label: 'Service Definition  - Travel'
+define service Yrv_sd_u_travel {
+  expose yrv_c_u_travel as Travel;
+  expose yrv_i_u_agency as Agency;
+  expose yrv_I_u_customer as Customer;
+  expose I_Currency as Currency;
+  expose I_Country as Country;
+}

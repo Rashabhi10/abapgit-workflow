@@ -1,0 +1,5 @@
+CLASS yrv_bimp_m_travel_sup DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF yrv_m_travel_sup.
+ENDCLASS.
+
+CLASS yrv_bimp_m_travel_sup IMPLEMENTATION.
+ENDCLASS.

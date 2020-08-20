@@ -1,0 +1,43 @@
+managed implementation in class yrv_bimp_m_travel_sup unique;
+
+define behavior for yrv_m_travel_sup alias Travel
+persistent table /dmo/travel_m
+lock master
+//authorization master ( instance )
+etag master last_changed_at
+{
+  field ( readonly ) last_changed_at, last_changed_by, created_at, created_by;
+  field ( mandatory : create ) agency_id, overall_status, booking_fee, currency_code;
+  field( features : instance ) travel_id;
+  action createTravelTemp  result[1] $self;
+  action approveTravel result[1] $self;
+  action rejectTravel result[1] $self;
+  create;
+  update;
+  delete;
+  association _booking { create; }
+}
+
+define behavior for YRV_M_BOOKING_SUP alias Booking
+persistent table /dmo/booking_m
+lock dependent ( travel_id = travel_id )
+//authorization dependent by <association>
+etag master last_changed_at
+{
+
+  field ( mandatory : create ) carrier_id, connection_id, flight_date;
+  update;
+  delete;
+  association _bookingSupp { create; }
+}
+
+define behavior for yrv_m_bookingsup alias BookingSup
+persistent table /dmo/booksuppl_m
+lock dependent ( travel_id = travel_id )
+//authorization dependent by <association>
+etag master last_changed_at
+{
+  field ( mandatory : create ) supplement_id, price;
+  update;
+  delete;
+}

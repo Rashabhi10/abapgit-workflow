@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition - Demo'
+define service Yrv_demo_1_srv {
+  expose yrv_demo_1;
+}

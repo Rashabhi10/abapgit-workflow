@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition - Sales'
+define service Yrv_sd_sales {
+  expose yrv_c_sales;
+}

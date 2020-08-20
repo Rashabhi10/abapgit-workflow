@@ -1,0 +1,23 @@
+projection;
+
+define behavior for yrv_m_proc_travel alias Travel
+{
+  use action createTravelTemp;
+  use create;
+  use update;
+  use delete;
+  use association _BOOKING { create; }
+}
+
+define behavior for yrv_m_proc_booking alias Booking
+{
+  use update;
+  use delete;
+  use association _BOOKINGSUPP { create; }
+}
+
+define behavior for yrv_m_proc_bookingsup alias BookingSup
+{
+  use update;
+  use delete;
+}

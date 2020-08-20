@@ -1,0 +1,8 @@
+@EndUserText.label: 'Service Definition : Approver - Travel'
+define service Yrv_sd_approver_travel {
+  expose yrv_m_approver_travel;
+  expose yrv_m_approver_booking;
+  expose /DMO/I_Customer as Customer;
+  expose /DMO/I_Agency as Agency;
+  expose I_Currency as Currency;
+}

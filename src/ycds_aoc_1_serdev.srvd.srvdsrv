@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition'
+define service YCDS_AOC_1_SERDEV {
+  expose ycds_aoc_1;
+}
