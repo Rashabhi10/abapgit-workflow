@@ -22,7 +22,8 @@ define root view entity yrv_m_proc_travel
        label: 'Booking',
        targetElement: '_booking'}]
 
-      @UI.lineItem: [{position: 10 }]
+      @UI.lineItem: [{position: 10 },
+      {type: #FOR_ACTION, dataAction: 'createTravelTemp', label: 'Create Travel Template'}]
       @UI.identification: [{position: 10 }]
       @UI.selectionField: [{position: 10 }]
       @Search.defaultSearchElement: true
@@ -33,7 +34,7 @@ define root view entity yrv_m_proc_travel
       @Consumption.valueHelpDefinition: [{entity.name: '/DMO/I_Agency', entity.element: 'AgencyID' }]
       @ObjectModel.text.element: ['AgencyName']
       agency_id,
-      _agency.AName as AgencyName,
+      _agency.AName       as AgencyName,
       @UI.lineItem: [{position: 30 }]
       @UI.identification: [{position: 30 }]
       @UI.selectionField: [{position: 30 }]

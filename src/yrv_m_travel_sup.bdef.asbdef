@@ -10,8 +10,8 @@ etag master last_changed_at
   field ( mandatory : create ) agency_id, overall_status, booking_fee, currency_code;
   field ( features : instance ) travel_id;
   action createTravelTemp result [1] $self;
-  action approveTravel result [1] $self;
-  action rejectTravel result [1] $self;
+  action ( features : instance ) approveTravel result [1] $self;
+  action ( features : instance ) rejectTravel result [1] $self;
   create;
   update;
   delete;
