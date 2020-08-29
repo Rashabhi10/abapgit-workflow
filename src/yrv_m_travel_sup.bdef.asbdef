@@ -12,6 +12,7 @@ etag master last_changed_at
   action createTravelTemp result [1] $self;
   action ( features : instance ) approveTravel result [1] $self;
   action ( features : instance ) rejectTravel result [1] $self;
+  validation checkstatus on save { field overall_status; }
   create;
   update;
   delete;
@@ -26,6 +27,7 @@ etag master last_changed_at
 {
   field ( readonly ) travel_id;
   field ( mandatory : create ) carrier_id, connection_id, flight_date;
+  determination calctotalprice on modify { field flight_price, currency_code;}
   update;
   delete;
   association _bookingSupp { create; }

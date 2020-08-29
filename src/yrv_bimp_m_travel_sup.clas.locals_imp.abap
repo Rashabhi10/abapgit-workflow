@@ -13,6 +13,13 @@ CLASS lhc_Travel DEFINITION INHERITING FROM cl_abap_behavior_handler.
     METHODS get_features FOR FEATURES
       IMPORTING keys REQUEST requested_features FOR Travel RESULT result.
 
+    METHODS checkstatus FOR VALIDATE ON SAVE
+      IMPORTING keys FOR Travel~checkstatus.
+
+    METHODS calctotalprice FOR DETERMINE ON MODIFY
+      IMPORTING keys FOR Booking~calctotalprice.
+
+
 ENDCLASS.
 
 CLASS lhc_Travel IMPLEMENTATION.
@@ -176,6 +183,42 @@ CLASS lhc_Travel IMPLEMENTATION.
                                 if_abap_behv=>fc-o-disabled
                         ELSE if_abap_behv=>fc-o-enabled )
      ) ).
+
+  ENDMETHOD.
+
+  METHOD checkstatus.
+
+    READ ENTITY yrv_m_travel_sup
+    FIELDS ( overall_status )
+    WITH CORRESPONDING #( keys )
+    RESULT DATA(lt_stat).
+
+
+    LOOP AT lt_stat INTO DATA(ls).
+
+      CASE ls-overall_status.
+        WHEN 'O'.
+        WHEN 'A'.
+        WHEN 'X'.
+        WHEN OTHERS.
+          APPEND VALUE #( %key = ls-%key ) TO failed-travel.
+
+          APPEND VALUE #( %key = ls-%key
+                         %msg = new_message(  id     = /dmo/cx_flight_legacy=>status_is_not_valid-msgid
+                                            number   = /dmo/cx_flight_legacy=>status_is_not_valid-msgno
+                                            v1       = ls-overall_status
+                                            severity = if_abap_behv_message=>severity-error )
+                                            %element-overall_status = if_abap_behv=>mk-on
+                          ) TO reported-travel.
+
+
+      ENDCASE.
+
+    ENDLOOP.
+
+  ENDMETHOD.
+
+  METHOD calctotalprice.
 
   ENDMETHOD.
 
