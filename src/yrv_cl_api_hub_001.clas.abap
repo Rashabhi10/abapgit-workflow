@@ -31,7 +31,7 @@ CLASS yrv_cl_api_hub_001 IMPLEMENTATION.
        (  name = 'APIKey' value = 'h9u2IqNul92O6dzmT33eNgeG3J1TL8w2') ) ).
 
     lo_request->set_uri_path(
-       i_uri_path = gv_url && 'API_MATERIAL_STOCK_SRV/A_MatlStkInAcctMod?$top=5&$format=json'  ).
+       i_uri_path = gv_url && 'API_MATERIAL_STOCK_SRV/A_BankDetail?$top=5&$format=json'  ).
 
     TRY.
         DATA(lv_response) = go_http_client->execute( i_method = if_web_http_client=>get )->get_text(  ).
@@ -51,7 +51,7 @@ CLASS yrv_cl_api_hub_001 IMPLEMENTATION.
        (  name = 'APIKey' value = 'h9u2IqNul92O6dzmT33eNgeG3J1TL8w2') ) ).
 
     lo_request->set_uri_path(
-       i_uri_path = gv_url && 'API_BANKDETAIL_SRV/A_BankDetail?$top=25'  ).
+       i_uri_path = gv_url && 'API_BANKDETAIL_SRV/A_BankDetail?$top=25&$format=json'  ).
 
     TRY.
         DATA(lv_response) = go_http_client->execute( i_method = if_web_http_client=>get )->get_text(  ).
